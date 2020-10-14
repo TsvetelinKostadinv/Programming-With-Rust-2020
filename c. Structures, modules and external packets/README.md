@@ -50,21 +50,20 @@ mod name2;
 ```
 ```
 src
- | - main.rs / lib.rs
- | - module_name.rs
- | - parent_module
-   | - child_module.rs
-   | - mod.rs // implementation
+ +-- main.rs / lib.rs
+ +-- module_name.rs
+ +-- parent_module
+     +-- child_module.rs
+     +-- mod.rs // implementation
 ```
 
-Access to something in a module -> <crate/crate_name>::module_name:: ... ::function_or_Struct;
+Access to something in a module -> `<crate/crate_name>::module_name:: ... ::function_or_Struct;`
 
-Everything public in rust has `pub` modifier
+Everything **public** in rust **has** to have `pub` modifier
 
 ### Use syntax for easier access
-`pub use crate::module::{func1, func2...}` -> imports specific functions/structs
-
-`pub use crate::module::*` -> imports everything
+- `pub use crate::module::{func1, func2...}` -> imports specific functions/structs
+- `pub use crate::module::*` -> imports everything
 
 ### Shorthand references to modules
 - `self:: ...` -> same module
@@ -84,6 +83,10 @@ Crates can be added to `Cargo.toml` manually like:
 [dependencies]
 name = 'semantic_version'
 ```
-Packets are compiled locally, but segregated from our crate.
+Or installed by `cargo`:
+```bash
+cargo install <crate>
+```
+Packets are compiled locally, but at a different stage than our project.
 
 Documentation for crates can be found at `https://docs.rs`
