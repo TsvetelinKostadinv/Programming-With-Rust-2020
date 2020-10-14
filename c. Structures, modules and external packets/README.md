@@ -1,5 +1,16 @@
 # Structures, modules and external packets
 
+## Structs
+```rust
+struct User
+{
+  id: i32,
+  username: string,
+  password: string,
+  email: string, // note the trailing comma(my fav feature)
+}
+```
+
 ## Methods and Associated functions
 Data and functionality are segregated in different blocks.
 ```rust
