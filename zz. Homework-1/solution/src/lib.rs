@@ -16,6 +16,9 @@ fn transform_for_keys(
     label_k2: String,
     label_both: String,
 ) -> String {
+    if k1 == 0 || k1 == 1 || k2 == 0 || k2 == 1 {
+        panic!("The dividors cannot be 0 or 1");
+    }
     match num {
         _ if num % (k1 as usize) == 0 && num % (k2 as usize) == 0 => label_both,
         _ if num % (k1 as usize) == 0 => label_k1,
@@ -51,21 +54,21 @@ fn custom_buzz_transformer(num: usize, k1: u8, k2: u8) -> String {
 /// Generates elements according to the standard rules of the fizzbuzz game
 pub fn fizzbuzz(n: usize) -> Vec<String> {
     gen_sequence_one_to(n)
-        .iter()
-        .map(|&num| fizz_buzz_transformer(num))
+        .into_iter()
+        .map(fizz_buzz_transformer)
         .collect()
 }
 
 /// Genereates elements according to the rules of the fizzbuzz games, but with custom coefficients
 pub fn custom_buzz(n: usize, k1: u8, k2: u8) -> Vec<String> {
     gen_sequence_one_to(n)
-        .iter()
-        .map(|&num| custom_buzz_transformer(num, k1, k2))
+        .into_iter()
+        .map(|num| custom_buzz_transformer(num, k1, k2))
         .collect()
 }
 
-/// Defines a structure to geenrate elements 
-/// according to the rules of the game FizzBuzz, 
+/// Defines a structure to geenrate elements
+/// according to the rules of the game FizzBuzz,
 /// but with custom constants and custom labels
 pub struct FizzBuzzer {
     pub k1: u8,
@@ -74,13 +77,13 @@ pub struct FizzBuzzer {
 }
 
 impl FizzBuzzer {
-    /// Takes the first n elements which will be 
+    /// Takes the first n elements which will be
     /// generated according to the rules of the game fizzbuzz,
     /// but specified in the structure
     pub fn take(&self, n: usize) -> Vec<String> {
         gen_sequence_one_to(n)
-            .iter()
-            .map(|&num| {
+            .into_iter()
+            .map(|num| {
                 return transform_for_keys(
                     num,
                     self.k1,
