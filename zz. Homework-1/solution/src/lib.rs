@@ -151,7 +151,7 @@ mod tests {
                 "Buzz".to_string(),
                 "FizzBuzz".to_string(),
             ],
-        };
+        ;
         assert_eq!(fizzbuzz(0), empty);
         assert_eq!(custom_buzz(0, 3, 5), empty);
         assert_eq!(fizzbuzzer.take(0), empty);
