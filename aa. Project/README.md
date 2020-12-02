@@ -1,9 +1,6 @@
 # Copper
-Cuz it not Rust \
+Cuz it does not Rust \
 See what i did there 😄😄
-
-## The title
-It came from copper cables as in the network cables
 
 ## Synopsis
 The aim is to develop the infrastructure for `distributed computing` with Rust so a heavy task can be split between multiple computers.
