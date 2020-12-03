@@ -1,4 +1,3 @@
-fn main()
-{
-    println!("You have started a child node!");
+pub fn main() {
+    parent::main()
 }
